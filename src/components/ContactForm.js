@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { nanoid } from "nanoid";
+import propTypes from "prop-types";
+import s from "./ContactForm.module.css";
 
 class ContactForm extends Component {
   state = {
@@ -7,10 +8,8 @@ class ContactForm extends Component {
     number: "",
   };
 
-  nameInputId = nanoid();
-  numberInputId = nanoid();
   // добавление значений в state
-  inputForm = (e) => {
+  inputChange = (e) => {
     const { name, value } = e.currentTarget;
     this.setState({
       [name]: value,
@@ -22,8 +21,8 @@ class ContactForm extends Component {
     this.setState({ name: "", number: "" });
   };
 
-  // добавление контакта
-  addContact = (e) => {
+  // отправка контакта
+  pushContact = (e) => {
     e.preventDefault();
     this.props.addContact(this.state);
     this.resetForm();
@@ -31,31 +30,35 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.addContact}>
+      <form className={s.formList}>
         <label htmlFor={this.nameInputId}>
           Name:
           <input
             type="text"
             name="name"
             value={this.state.name}
-            onChange={this.inputForm}
-            id={this.nameInputId}
+            onChange={this.inputChange}
           />
         </label>
-        <label htmlFor={this.numberInputId}>
+        <label>
           Number:
           <input
             type="tel"
             name="number"
             value={this.state.number}
-            onChange={this.inputForm}
-            id={this.numberInputId}
+            onChange={this.inputChange}
           />
         </label>
-        <button onClick={this.addContact}>Add contact</button>
+        <button className={s.formBtn} onClick={this.pushContact}>
+          Add contact
+        </button>
       </form>
     );
   }
 }
 
 export default ContactForm;
+
+ContactForm.propTypes = {
+  addContact: propTypes.func,
+};
