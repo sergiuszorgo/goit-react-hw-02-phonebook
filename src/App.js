@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
+import { nanoid } from "nanoid";
 import ContactList from "./components/ContactList";
+import ContactForm from "./components/ContactForm";
 
 class App extends Component {
   state = {
@@ -11,12 +13,33 @@ class App extends Component {
       { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
     ],
     filter: "",
-    name: "",
-    number: "",
   };
-  addContact = () => {
-    console.log("Добавить контакт");
+  // проверка на совпадение
+  checkContact = (name) => {
+    return this.state.contacts.some(
+      (contact) => contact.name.toLowerCase() === name.toLowerCase()
+    );
   };
+
+  // добавление контакта
+  addContact = ({ name, number }) => {
+    console.log(name, number);
+    const contact = {
+      id: nanoid(),
+      name,
+      number,
+    };
+    if (this.checkContact(name)) {
+      alert(`${name} is already in contacts`);
+      return;
+    } else {
+      this.setState(({ contacts }) => ({
+        contacts: [contact, ...contacts],
+      }));
+    }
+  };
+
+  // удаление контакта
   deleteContact = (contactId) => {
     this.setState((prevState) => ({
       contacts: prevState.contacts.filter(
@@ -24,22 +47,17 @@ class App extends Component {
       ),
     }));
   };
+
   render() {
     const { contacts } = this.state;
     return (
       <div className="App">
         <h1>Phonebook</h1>
-        <form action="">
-          <label>
-            Name:
-            <input type="text" />
-          </label>
-          <label>
-            Number:
-            <input type="tel" />
-          </label>
-          <button onClick={this.addContact}>Add contact</button>
-        </form>
+        <ContactForm addContact={this.addContact} />
+        <div>
+          <p>Find contacts by name</p>
+          <input type="text" />
+        </div>
         <ContactList contacts={contacts} deleteContact={this.deleteContact} />
       </div>
     );

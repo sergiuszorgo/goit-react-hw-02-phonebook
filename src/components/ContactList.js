@@ -3,6 +3,7 @@ import s from "./ContactList.module.css";
 
 const ContactList = ({ contacts, deleteContact }) => (
   <div className={s.ContactBox}>
+    <h2>Contacts: {contacts.length}</h2>
     <ul className={s.ContactList}>
       {contacts.map(({ id, name, number }) => (
         <li key={id} className={s.ContactListItem}>
