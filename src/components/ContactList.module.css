@@ -1,0 +1,20 @@
+.ContactBox {
+  padding: 5px;
+  margin: 0 auto;
+}
+.ContactList {
+  max-width: 500px;
+}
+
+.ContactListItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: bisque;
+  border: 1px solid tomato;
+}
+
+.ContactListName {
+  margin: 0 20px 0 0;
+}
