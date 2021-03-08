@@ -31,7 +31,7 @@ class ContactForm extends Component {
   render() {
     return (
       <form className={s.formList}>
-        <label htmlFor={this.nameInputId}>
+        <label>
           Name:
           <input
             type="text"

@@ -11,7 +11,9 @@ const ContactList = ({ contacts, deleteContact }) => (
           <p className={s.ContactListName}>
             {name}: {number}
           </p>
-          <button onClick={() => deleteContact(id)}>Remoove</button>
+          <button className={s.contBtn} onClick={() => deleteContact(id)}>
+            &mdash;
+          </button>
         </li>
       ))}
     </ul>

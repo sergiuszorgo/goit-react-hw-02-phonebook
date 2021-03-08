@@ -1,0 +1,21 @@
+.searchForm {
+  max-width: 500px;
+  margin: 10px auto;
+}
+
+.searchForm label {
+  font-weight: 500;
+}
+
+.searchForm input {
+  font-size: 20px;
+  padding: 5px;
+  border: 1px solid lightslategray;
+  outline: none;
+  border-radius: 5px;
+}
+
+.searchForm input:focus,
+.searchForm input:hover {
+  box-shadow: 1px 2px 2px 1px rgb(119 136 153 / 0.6);
+}

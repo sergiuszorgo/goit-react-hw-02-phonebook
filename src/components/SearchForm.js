@@ -1,12 +1,15 @@
 import React from "react";
 import propTypes from "prop-types";
+import s from "./SearchForm.module.css";
 
 const SearchForm = ({ filter, inputForm }) => {
   return (
-    <label htmlFor="">
-      Find contact by name{" "}
-      <input type="text" name="filter" value={filter} onChange={inputForm} />
-    </label>
+    <div className={s.searchForm}>
+      <label htmlFor="">
+        Find contact by name{" "}
+        <input type="text" name="filter" value={filter} onChange={inputForm} />
+      </label>
+    </div>
   );
 };
 
