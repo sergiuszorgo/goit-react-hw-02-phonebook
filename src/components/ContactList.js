@@ -12,7 +12,7 @@ const ContactList = ({ contacts, deleteContact }) => (
             {name}: {number}
           </p>
           <button className={s.contBtn} onClick={() => deleteContact(id)}>
-            &mdash;
+            —
           </button>
         </li>
       ))}

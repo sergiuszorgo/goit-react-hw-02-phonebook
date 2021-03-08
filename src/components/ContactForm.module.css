@@ -29,6 +29,8 @@
 
 .formList input:focus,
 .formList input:hover {
+  -webkit-box-shadow: 1px 2px 2px 1px rgb(119 136 153 / 0.6);
+  -moz-box-shadow: 1px 2px 2px 1px rgb(119 136 153 / 0.6);
   box-shadow: 1px 2px 2px 1px rgb(119 136 153 / 0.6);
 }
 
@@ -41,6 +43,8 @@
   border-radius: 5px;
   margin: 10px auto;
   font-weight: bold;
+  -webkit-box-shadow: 1px 2px 2px 1px rgb(0 0 0 / 0.5);
+  -moz-box-shadow: 1px 2px 2px 1px rgb(0 0 0 / 0.5);
   box-shadow: 1px 2px 2px 1px rgb(0 0 0 / 0.5);
 }
 
@@ -48,5 +52,7 @@
 .formBtn:focus {
   outline: none;
   background-color: #1a73e8;
+  -webkit-box-shadow: 1px 2px 2px 1px rgb(26 15 232 / 0.5);
+  -moz-box-shadow: 1px 2px 2px 1px rgb(26 15 232 / 0.5);
   box-shadow: 1px 2px 2px 1px rgb(26 15 232 / 0.5);
 }
