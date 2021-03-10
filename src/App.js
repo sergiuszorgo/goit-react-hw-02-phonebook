@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 import { nanoid } from "nanoid";
-import ContactList from "./components/ContactList";
-import ContactForm from "./components/ContactForm";
-import SearchForm from "./components/SearchForm";
+import ContactList from "./components/ContactList/ContactList";
+import ContactForm from "./components/ContactForm/ContactForm";
+import SearchForm from "./components/SearchForm/SearchForm";
 
 class App extends Component {
   state = {
